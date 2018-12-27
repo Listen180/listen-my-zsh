@@ -34,7 +34,7 @@ setuptools.setup(
     long_description=long_description,
     #long_description_content_type="text/markdown",
     url="https://github.com/Listen180/listen-my-zsh",
-    packages=setuptools.find_packages(),
+    packages=['listen-my-zsh'],
     install_requires=[
         'wget',
         'click',
@@ -48,6 +48,6 @@ setuptools.setup(
     ],
     keywords='shell, zsh, environment configuration',
     entry_points={'console_scripts': [
-        'dpzsh = listen-my-zsh.listen-my-zsh:main',
+        'dpzsh=listen-my-zsh.listen_my_zsh:main',
         ]},
 )
