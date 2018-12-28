@@ -69,8 +69,8 @@ fi
 echo "  copying custom themes into oh-my-zsh custom folder..."
 cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/
 
-## Activate ~/.zshrc 
-source ~/.zshrc
+## Make an alias for activatign ~/.zshrc 
+alias actzsh="source ~/.zshrc"
 
 #rm -rf ~/.listen-my-zsh
 
