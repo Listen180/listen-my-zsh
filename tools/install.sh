@@ -50,6 +50,7 @@ if [ -f ~/.zshrc ]; then
     case "$choice" in 
         y|Y )
             echo "Updating ~/.zshrc ... "
+            rm ~/.zshrc
             cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/
             ;;
         n|N )
@@ -62,7 +63,10 @@ if [ -f ~/.zshrc ]; then
 fi
 
 ## Copy the custom theme into ~/.oh-my-zsh/themes/
-cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
+if [ -f ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme ]; then
+    rm ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
+fi
+cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/
 
 
 #rm -rf ~/.listen-my-zsh
