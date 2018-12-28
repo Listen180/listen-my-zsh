@@ -62,7 +62,7 @@ if [ -f ~/.zshrc ]; then
 fi
 
 ## Copy the custom theme into ~/.oh-my-zsh/themes/
-cp ~/.listen-my-zsh ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
+cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
 
 
 #rm -rf ~/.listen-my-zsh
