@@ -6,12 +6,47 @@ This is a Python Command Line Tool that automatically setup a fancy zsh environm
 Hope it will accelerate your customization procedure of your own coding environment. 
 
 
-Install
-#######
+Getting Started
+###############
+
+
+Prerequisites
+-------------
+
+Disclaimer: Listen My Zsh works best on macOS and Linux. 
+
+
+- Unix-like operating system (macOS or Linux). 
+
+- `[Zsh] <https://www.zsh.org>`_ should be installed (v4.3.9 or more recent). If not pre-installed (`zsh --version to confirm`), check the following instruction here: `[Installing ZSH] <https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH>`_. 
+
+- curl or wget should be installed. 
+
+- git should be installed. 
+
+- oh-my-zsh should be installed. If not pre-installed, check the following instruction here: `[Installing oh-my-zsh] <https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH>`_; Or you could simply run: `sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"` in your terminal. 
+
+
+
+Installation
+------------
+
+via wget
 
 .. code-block:: shell
 
-   sh -c "$(wget -O - https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh -O -)"
+   sh -c "$(wget https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh -O -)"
+
+
+
+via curl
+
+.. code-block:: shell
+
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh)"
+
+
+
 
 
 
