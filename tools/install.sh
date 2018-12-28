@@ -46,7 +46,7 @@ fi
 
 ## Copy the .zshrc file to ~/.zshrc
 if [ -f ~/.zshrc ]; then
-    read -p "[~/.zshrc] file already exists. Are you going to remove it and use that in liste-my-zsh? [Y/n]: " choice
+    read -p "[~/.zshrc] file already exists. Are you going to remove it and use the default one in liste-my-zsh? [Y/n]: " choice
     case "$choice" in 
         y|Y )
             echo "Updating ~/.zshrc ... "
@@ -66,7 +66,10 @@ fi
 if [ -f ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme ]; then
     rm ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
 fi
+echo "  copying custom themes into oh-my-zsh custom folder..."
 cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/
+
+## Activate ~/.zshrc 
 source ~/.zshrc
 
 #rm -rf ~/.listen-my-zsh
