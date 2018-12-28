@@ -9,11 +9,11 @@
 # *********************************************************
 
 ## Install oh-my-zsh
-if [ ! -d ~/.listen-my-zsh ]; then
-    echo " Installing oh-my-zsh ... "
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-    echo ""
-fi
+#if [ ! -d ~/.listen-my-zsh ]; then
+#    echo " Installing oh-my-zsh ... "
+#   sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+#    echo ""
+#fi
 
 
 ## Install listen-my-zsh
@@ -45,7 +45,6 @@ else
 fi
 
 ## Copy the .zshrc file to ~/.zshrc
-## Copy the .zshrc file to ~
 if [ -f ~/.zshrc ]; then
     read -p "[~/.zshrc] file already exists. Are you going to remove it and use that in liste-my-zsh? [Y/n]: " choice
     case "$choice" in 
@@ -62,8 +61,8 @@ if [ -f ~/.zshrc ]; then
     esac
 fi
 
-
-
+## Copy the custom theme into ~/.oh-my-zsh/themes/
+cp ~/.listen-my-zsh ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
 
 
 #rm -rf ~/.listen-my-zsh
