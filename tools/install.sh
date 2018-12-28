@@ -18,7 +18,7 @@ fi
 
 ## Install listen-my-zsh
 if [ -d ~/.listen-my-zsh ]; then
-    read -p "[~/.listen-my-zsh] folder already exists. Are you going to remove the previous folder and update (Y/n)?" choice
+    read -p "[~/.listen-my-zsh] folder already exists. Are you going to remove the previous folder and update? [Y/n]: " choice
     case "$choice" in 
         y|Y )
             echo "Removing previous folder ... "
@@ -47,7 +47,7 @@ fi
 ## Copy the .zshrc file to ~/.zshrc
 ## Copy the .zshrc file to ~
 if [ -f ~/.zshrc ]; then
-    read -p "[~/.zshrc] file already exists. Are you going to remove the previous one and use liste-my-zsh .zshrc (Y/n)?" choice
+    read -p "[~/.zshrc] file already exists. Are you going to remove it and use that in liste-my-zsh? [Y/n]: " choice
     case "$choice" in 
         y|Y )
             echo "Updating ~/.zshrc ... "
