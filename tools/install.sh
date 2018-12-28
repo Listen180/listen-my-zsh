@@ -66,7 +66,7 @@ fi
 
 
 
-#rm -rf ~/listen-my-zsh
+#rm -rf ~/.listen-my-zsh
 
 
 
