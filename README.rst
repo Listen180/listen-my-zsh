@@ -24,11 +24,12 @@ Disclaimer: Listen My Zsh works best on macOS and Linux.
 
 - git should be installed. 
 
-- oh-my-zsh should be installed. If not pre-installed, check the following instruction here: `Installing oh-my-zsh <https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH>`_; Or you could simply run: 
+- oh-my-zsh should be installed. If not pre-installed, check the following instruction here: `Installing oh-my-zsh <https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH>`_; Or you could simply run: ``sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"`` in your terminal. 
+
 .. code-block:: shell
 
    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-in your terminal. 
+
 
 
 
