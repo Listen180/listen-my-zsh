@@ -67,7 +67,7 @@ if [ -f ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme ]; then
     rm ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
 fi
 cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/
-
+source ~/.zshrc
 
 #rm -rf ~/.listen-my-zsh
 
