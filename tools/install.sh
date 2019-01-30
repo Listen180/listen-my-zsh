@@ -78,14 +78,14 @@ if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
 fi
 
-if [ "$OSTYPE" == "linux-gnu" ]; then
-    echo "  copying .zshrc for $OSTYPE"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    echo "  copying .zshrc for ${OSTYPE}"
     cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
-elif [ "$OSTYPE" == "darwin"* ]; then
-    echo "  copying .zshrc for $OSTYPE"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "  copying .zshrc for ${OSTYPE}"
     cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
 else
-    echo "  OSTYPE NOT matched: $OSTYPE"
+    echo "  OSTYPE NOT matched: ${OSTYPE}"
 fi
 
 #if [ -f ~/.zshrc ]; then
