@@ -77,7 +77,16 @@ if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     printf "${YELLOW}Found ~/.zshrc.${NORMAL} ${GREEN}Backing up to ~/.zshrc.pre-listen-my-zsh${NORMAL}\n";
     mv ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
 fi
-cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
+
+if [ "$OSTYPE" == "linux-gnu" ]; then
+    echo "  copying .zshrc for $OSTYPE"
+    cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
+elif [ "$OSTYPE" == "darwin"* ]; then
+    echo "  copying .zshrc for $OSTYPE"
+    cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
+else
+    echo "  OSTYPE NOT matched: $OSTYPE"
+fi
 
 #if [ -f ~/.zshrc ]; then
 #    read -p "[~/.zshrc] file already exists. Are you going to remove it and use the default one in liste-my-zsh? [Y/n]: " choice
