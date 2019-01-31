@@ -87,7 +87,7 @@ elif [[ $OS == 'darwin'* ]]; then
     echo "  copying .zshrc for ${OSTYPE}"
     cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
 else
-    echo "  OSTYPE NOT matched: ${OS}"
+    echo "  OS-Type NOT matched: ${OS}"
 fi
 
 #if [ -f ~/.zshrc ]; then
