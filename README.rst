@@ -35,7 +35,7 @@ via wget
 
 .. code-block:: shell
 
-   sh -c "$(wget https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh -O -)"
+   bash -c "$(wget https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh -O -)"
 
 
 
@@ -43,7 +43,7 @@ via curl
 
 .. code-block:: shell
 
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh)"
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh)"
 
 
 
