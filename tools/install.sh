@@ -78,7 +78,7 @@ if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
 fi
 
-OS=echo "$OSTYPE"
+OS="$OSTYPE"
 
 if [[ $OS == 'linux-gnu' ]]; then
     echo "  copying .zshrc for ${OSTYPE}"
@@ -87,7 +87,7 @@ elif [[ $OS == 'darwin'* ]]; then
     echo "  copying .zshrc for ${OSTYPE}"
     cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
 else
-    echo "  OSTYPE NOT matched: ${OSTYPE}"
+    echo "  OSTYPE NOT matched: ${OS}"
 fi
 
 #if [ -f ~/.zshrc ]; then
