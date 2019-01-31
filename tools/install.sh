@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 # *********************************************************
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
@@ -78,13 +78,12 @@ if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
 fi
 
-OS="$OSTYPE"
 
-if [[ $OS == 'linux-gnu' ]]; then
-    echo "  copying .zshrc for ${OSTYPE}"
+if [[ "$OSTYPE" == 'linux-gnu' ]]; then
+    echo "  copying .zshrc for Linux ..."
     cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
-elif [[ $OS == 'darwin'* ]]; then
-    echo "  copying .zshrc for ${OSTYPE}"
+elif [[ "$OSTYPE" == 'darwin'* ]]; then
+    echo "  copying .zshrc for Mac OS ..."
     cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
 else
     echo "  OS-Type NOT matched: ${OS}"
