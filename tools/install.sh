@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 # *********************************************************
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
