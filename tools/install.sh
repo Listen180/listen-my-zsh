@@ -85,8 +85,13 @@ if [[ "$OSTYPE" == 'linux-gnu' ]]; then
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
     echo "  copying .zshrc for Mac OS ..."
     cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
+    echo "  copying .zshfunc for Mac OS ..."
+    cp ~/.listen-my-zsh/Mac/.zshfunc ~/.zshfucn
+    echo "  copying .zshfuncs/ folder for Mac OS ..."
+    cp -r ~/.listen-my-zsh/Mac/.zshfuncs ~/.zshfuncs
 else
-    echo "  OS-Type NOT matched: ${OS}"
+    echo "  OS-Type NOT matched: ${OS} "
+    echo "    (No file copied)"
 fi
 
 #if [ -f ~/.zshrc ]; then
