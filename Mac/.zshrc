@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-10-19 17:30
-# * Last modified : 2018-12-04 22:13
+# * Last modified : 2019-08-06 14:13
 # * Filename      : .zshrc
 # * Description   : 
 # *********************************************************
