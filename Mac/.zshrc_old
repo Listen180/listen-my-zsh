@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-10-19 17:30
-# * Last modified : 2018-12-04 22:13
+# * Last modified : 2018-12-24 14:34
 # * Filename      : .zshrc
 # * Description   : 
 # *********************************************************
@@ -53,24 +53,6 @@ export PATH=/usr/local/Cellar/pandoc/2.5/bin:$PATH
 # Path to defult Python
 # export PYTHON_PATH=/usr/local/bin/
 # export PATH=$PYTHON_PATH:$PATH
-
-# Path to Java (JDK)
-export JAVA_HOME=/usr/local/jdk-11.0.1.jdk/Contents/Home
-export PATH=$JAVA_HOME/bin:$PATH
-
-# Path to Hadoop
-export HADOOP_HOME=/usr/local/hadoop-3.2.0
-export PATH=$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$PATH
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export HADOOP_INSTALL=$HADOOP_HOME
-
-# Path to Apache Maven
-export MAVEN_HOME=$HOME/apache-maven-3.6.0
-export PATH=$MAVEN_HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -184,8 +166,8 @@ source $HOME/.rvm/scripts/rvm
 # alias python=python3
 # Some basic aliases
 alias la="ls -a"
-alias ll="ls -l -h"
-alias lal="ls -a -l -h"
+alias ll="ls -l"
+alias lal="ls -a -l"
 alias cc="clear"
 # ZSH aliases
 alias actzsh="source ~/.zshrc"
@@ -213,28 +195,33 @@ alias configconda="vim ~/.condarc"
 
 alias pf="ps -ef|grep"
 
-# Quick to specific projects
-alias mlt="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.go2project.sh && . ./.TEMP/go2project.sh && ls"
-alias mlttb="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.ssh.init.sh"
-alias mltbl="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.bl.ssh.init.sh"
-
-alias cvlatex="cd ~/OverleafProjects/SenLEI-CV-Latex && sh .pull.init.sh"
-
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH=$PATH:$HOME/.rvm/bin
+export PATH="$PATH:$HOME/.rvm/bin"
 
 
-## Display Calander
-echo ''
-cal
+
+# function powerline_precmd() {
+#     PS1="$(powerline-shell --shell zsh $?)"
+# }
+# function install_powerline_precmd() {
+#     for s in "${precmd_functions[@]}"; do
+# 	if [ "$s" = "powerline_precmd" ]; then
+# 	    return
+# 	fi
+#     done
+#     precmd_functions+=(powerline_precmd)
+# }
+# if [ "$TERM" != "linux" ]; then
+#     install_powerline_precmd
+# fi
 
 
-## Load Customized Functions
-if [[ -f ~/.zshfunc ]]; then
-    source ~/.zshfunc
-    echo "Customized Functions Loaded. "
-    if [[ -f ~/.zshfunc.readme  ]]; then
-	cat ~/.zshfunc.readme
-    fi
-fi
+#fpath=(~/.zsh/completion $fpath)
+
+#autoload -Uz compinit && compinit -i
+
+
+#etc=/Applications/Docker.app/Contents/Resources/etc
+#ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker
+#ln -s $etc/docker-machine.zsh-completion /usr/local/share/zsh/site-functions/_docker-machine
+#ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
