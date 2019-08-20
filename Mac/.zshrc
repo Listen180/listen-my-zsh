@@ -3,37 +3,10 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-10-19 17:30
-# * Last modified : 2019-08-20 11:19
+# * Last modified : 2019-08-20 11:35
 # * Filename      : .zshrc
 # * Description   : 
 # *********************************************************
-
-
-# echo """
-#           ...         
-#       -sdNMMMMmy/.    
-#     -dMMMMMMMMMMMN+   
-#    -NMMMMMMMMMMMMMMo  
-#    hMMMMMMMMMMMMMMMM. 
-#    dMMMMMMMMMMMMMMMM. 
-#    +MMMMMMMMMMMMMMMd  
-#     +NMMMMMMMMMMMMh.  
-#      .smMMMMMMMNy:    
-#         .:/++/-       
-#                       
-#                       
-#           ...         
-#        .sNMMMMh:      
-#       .NMMMMMMMM/     
-#       -MMMMMMMMMs     
-#        sMMMMMMMd.     
-#         -oyhhs:       
-#                                         
-# """
-
-
-
-
 
 
 ## If you come from bash you might have to change your $PATH.

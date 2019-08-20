@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-12-28 09:58
-# * Last modified : 2019-08-20 11:26
+# * Last modified : 2019-08-20 11:35
 # * Filename      : install.sh
 # * Description   : Install listen-my-zsh
 # *********************************************************
@@ -117,11 +117,13 @@ fi
 
 
 ## Copy the custom theme into ~/.oh-my-zsh/themes/
-# if [ -f ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme ]; then
-#     rm ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
-# fi
+if [ -f ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme ]; then
+    rm ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
+fi
 # echo "  copying custom themes into oh-my-zsh custom folder..."
 # cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
+echo "  copying custom themes into oh-my-zsh custom folder..."
+cp ~/.listen-my-zsh/custom/themes/LEISen.zsh-theme ~/.oh-my-zsh/custom/themes/LEISen.zsh-theme
 
 ## Make an alias for activatign ~/.zshrc 
 alias actzsh="source ~/.zshrc"
@@ -140,4 +142,4 @@ echo '                                                                 ... is no
 printf "${NORMAL}"
 
 ## Activate new [.zshrc]
-actzsh
+echo "Restart the terminal or type [actzsh] to activate the new configuration! "
