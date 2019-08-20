@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-12-28 09:58
-# * Last modified : 2019-08-20 11:35
+# * Last modified : 2019-08-20 11:44
 # * Filename      : install.sh
 # * Description   : Install listen-my-zsh
 # *********************************************************
@@ -142,4 +142,4 @@ echo '                                                                 ... is no
 printf "${NORMAL}"
 
 ## Activate new [.zshrc]
-printf "${YELLOW}Restart the terminal or type ${GREEN}[actzsh] ${YELLOW}to activate the new configuration!${NORMAL}\n";
+printf "${YELLOW}Restart the terminal to activate the new configuration!${NORMAL}\n";
