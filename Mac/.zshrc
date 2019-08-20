@@ -3,8 +3,8 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-10-19 17:30
-# * Last modified : 2019-08-20 10:57
-# * Filename      : zshrc
+# * Last modified : 2019-08-20 11:19
+# * Filename      : .zshrc
 # * Description   : 
 # *********************************************************
 
@@ -141,7 +141,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.rvm/scripts/rvm
+# source $HOME/.rvm/scripts/rvm
 
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -212,8 +212,8 @@ alias mltbl="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.bl.ssh.init.sh"
 alias cvlatex="cd ~/OverleafProjects/SenLEI-CV-Latex && sh .pull.init.sh"
 
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH=$PATH:$HOME/.rvm/bin
+## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH=$PATH:$HOME/.rvm/bin
 
 
 ## Display Calander

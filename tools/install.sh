@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-12-28 09:58
-# * Last modified : 2019-08-20 11:08
+# * Last modified : 2019-08-20 11:26
 # * Filename      : install.sh
 # * Description   : Install listen-my-zsh
 # *********************************************************
@@ -129,7 +129,6 @@ alias actzsh="source ~/.zshrc"
 #rm -rf ~/.listen-my-zsh
 
 
-
 printf "${GREEN}"
 echo '    __    _      __                                              __   '
 echo '   / /   (_)____/ /____  ____     ____ ___  __  __   ____  _____/ /_  '
@@ -140,3 +139,5 @@ echo '                                         /____/                       '
 echo '                                                                 ... is now installed! '
 printf "${NORMAL}"
 
+## Activate new [.zshrc]
+actzsh
