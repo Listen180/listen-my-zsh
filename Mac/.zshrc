@@ -51,7 +51,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ## Set name of the theme to load. Optionally, if you set this to "random", it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="LEISen"
+ZSH_THEME="mytheme"
 # ZSH_THEME="random"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="bullet-train"
@@ -99,7 +99,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 ## Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/listen-my-zsh/custom
+# ZSH_CUSTOM=$HOME/listen-my-zsh/custom
 
 ZSH_DISABLE_COMPFIX=true
 

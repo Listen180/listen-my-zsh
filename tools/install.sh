@@ -123,7 +123,7 @@ fi
 # echo "  copying custom themes into oh-my-zsh custom folder..."
 # cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
 echo "  copying custom themes into oh-my-zsh custom folder..."
-cp ~/.listen-my-zsh/custom/themes/LEISen.zsh-theme ~/.oh-my-zsh/custom/themes/LEISen.zsh-theme
+cp ~/.listen-my-zsh/custom/themes/LEISen.zsh-theme ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
 
 ## Make an alias for activatign ~/.zshrc 
 alias actzsh="source ~/.zshrc"
@@ -142,4 +142,4 @@ echo '                                                                 ... is no
 printf "${NORMAL}"
 
 ## Activate new [.zshrc]
-echo "Restart the terminal or type [actzsh] to activate the new configuration! "
+printf "${YELLOW}Restart the terminal or type ${GREEN}[actzsh] ${YELLOW}to activate the new configuration!${NORMAL}\n";
