@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2019-03-03 10:00
-# * Last modified : 2019-10-08 16:34
+# * Last modified : 2019-10-08 17:06
 # * Filename      : .zshfunc
 # * Description   : Customized ZSH Functions
 # *********************************************************
@@ -25,18 +25,18 @@ function overleaf () {
     if [[ -d $folder ]]; then
 	cd $folder
     else
-	read -p "~/OverleafProjects does not exis, do you want to creat one? [Y/n]: " creat
+	read -p "'${folder}' does not exis, do you want to creat one? [Y/n]: " creat
 	case "$creat" in 
 	    y|Y )
 		mkdir $folder
 		cd $folder
 		;;
 	    n|N )
-		echo "Aborte, folder was not created. "
+		echo "Aborte, '${folder}' was not created. "
 		exit
 		;;
 	    * ) 
-		echo "Aborte, folder was not created. "
+		echo "Aborte, '${folder}' was not created. "
 		exit
 		;;
 	esac
@@ -81,9 +81,30 @@ function checkname() {
 
 function ws() {
     ## Change working directory to WorkSpace
-    cd ~/WorkSpace/
+    folder=~/WorkSpace
+    if [[ -d $folder ]]; then
+	cd $folder
+    else
+	read -p "'${folder}' does not exis, do you want to creat one? [Y/n]: " creat
+	case "$creat" in 
+	    y|Y )
+		mkdir $folder
+		cd $folder
+		;;
+	    n|N )
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	    * ) 
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	esac
+    fi
     ls -l
-    ./.welcome2workspace.sh
+    if [[ -f .welcome2overleaf.sh ]]; then
+	./.welcome2workspace.sh
+    fi
 }
 
 
