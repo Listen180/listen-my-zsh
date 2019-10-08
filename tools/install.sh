@@ -93,6 +93,8 @@ if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
 	    UPDATE_ZSHRC="FALSE"
 	    ;;
     esac
+else
+    UPDATE_ZSHRC="TRUE"
 fi
 
 
