@@ -93,6 +93,9 @@ elif [[ "$OSTYPE" == 'darwin'* ]]; then
     cp ~/.listen-my-zsh/Mac/.zshfunc ~/.zshfunc
     echo "  copying .zshfuncs/ folder for Mac OS ..."
     if [ -d ~/.zshfuncs ];then
+	if [ -d ~/.zshfuncs-old-version ];then
+	    rm -r ~/.zshfuncs-old-version
+	fi
 	mv ~/.zshfuncs ~/.zshfuncs-old-version;
     fi
     cp -r ~/.listen-my-zsh/Mac/.zshfuncs ~/.zshfuncs
