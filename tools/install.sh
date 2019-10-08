@@ -56,12 +56,22 @@ if [ -d ~/.listen-my-zsh ]; then
             echo ""
             ;;
         n|N )
-            echo "Aborted. "
-            echo ""
+	    echo ""
+	    read -p "Do you want to contunue installation using old version of listen-my-zsh? [Y/n]: " install_old
+	    case $install_old in
+		y|Y )
+		    echo "Continue installation (old version) ... "
+		    ;;
+		* )
+		    echo "Aborted. "
+		    exit
+		    ;;
+	    esac
             ;;
         * )
             echo "Invalid input. (Please choose 'y' or 'n')"
             echo ""
+	    exit
             ;;
     esac
 else
