@@ -102,7 +102,7 @@ if [[ "$OSTYPE" == 'linux-gnu' ]]; then
     echo "  updating .zshrc for Linux ..."
     cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
-    if [[ "$UPDATE_ZSHRC" == "TRUE" ]]; then
+    if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
 	echo "  updating .zshrc for Mac OS ..."
 	cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
     else
