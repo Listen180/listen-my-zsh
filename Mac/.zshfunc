@@ -3,14 +3,43 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2019-03-03 10:00
-# * Last modified : 2019-07-18 19:46
+# * Last modified : 2019-10-08 16:34
 # * Filename      : .zshfunc
 # * Description   : Customized ZSH Functions
 # *********************************************************
 
 
+function gurl () {
+    # Get Current Git Repository's URL
+    wd=$(pwd)
+    if [[ -d ${wd}/.git ]];then
+	sh ~/.zshfuncs/getGitUrl.sh
+    else
+	echo "[Invalid]: Current directory is not a Git Repository! "
+    fi
+}
+
+
 function overleaf () {
-    cd ~/OverleafProjects
+    folder=~/OverleafProjects
+    if [[ -d $folder ]]; then
+	cd $folder
+    else
+	read -p "~/OverleafProjects does not exis, do you want to creat one? [Y/n]: " creat
+	case "$creat" in 
+	    y|Y )
+		mkdir $folder
+		cd $folder
+		;;
+	    n|N )
+		echo "Aborte, folder was not created. "
+		exit
+		;;
+	    * ) 
+		echo "Aborte, folder was not created. "
+		exit
+		;;
+    fi
     echo ''
     echo '--- Welcome to Overleaf Projects ---'
     echo ''
@@ -20,20 +49,23 @@ function overleaf () {
     fi
 }
 
+
 function ccl () {
     # Clean some log like files of LaTex Compiling
     wd=$(pwd)
     if [[ ${wd} == "${HOME}/OverleafProjects"* ]];then
 	sh ~/.zshfuncs/find_N_remove_log.sh
     else
-	echo '[WARNING]: Current directory is not permitted for this operation! '
+	echo "[WARNING]: Current directory is not permitted for this operation! "
     fi
 }
+
 
 function ignorelog () {
     # Clean some log like files of LaTex Compiling
     sh ~/.zshfuncs/gitignore_log.sh
 }
+
 
 function checkname() {
     ## Check ComputerName, HostName, and LocalHostName
@@ -45,12 +77,14 @@ function checkname() {
     echo "You can use 'sudo scutil --set pref [newval]' to reset the name(s). "
 }
 
+
 function ws() {
     ## Change working directory to WorkSpace
     cd ~/WorkSpace/
     ls -l
     ./.welcome2workspace.sh
 }
+
 
 function wanip(){
     #PublicIp=$(curl getip.name)
@@ -64,6 +98,7 @@ function wanip(){
     echo ''
     echo '... Done. '
 }
+
 
 # function powerline_precmd() {
 #     PS1="$(powerline-shell --shell zsh $?)"
