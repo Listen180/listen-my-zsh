@@ -39,6 +39,7 @@ function overleaf () {
 		echo "Aborte, folder was not created. "
 		exit
 		;;
+	esac
     fi
     echo ''
     echo '--- Welcome to Overleaf Projects ---'
