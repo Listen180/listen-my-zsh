@@ -185,7 +185,7 @@ alias mltbl="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.bl.ssh.init.sh"
 alias cvlatex="cd ~/OverleafProjects/SenLEI-CV-Latex && sh .pull.init.sh"
 
 # 
-# alias lzsh="$(bash -c "$(curl -fsSL https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh)")"
+alias lzsh="$(bash -c "$(curl -fsSL https://raw.githubusercontent.com/Listen180/listen-my-zsh/master/tools/install.sh)")"
 
 
 ## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
