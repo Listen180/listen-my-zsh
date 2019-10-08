@@ -76,22 +76,39 @@ printf "${BLUE}Looking for an existing zsh config...${NORMAL}\n"
 if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     printf "${YELLOW}Found ~/.zshrc.${NORMAL} ${GREEN}Backing up to ~/.zshrc.pre-listen-my-zsh${NORMAL}\n";
     if [ -f ~/.zshrc.pre-listen-my-zsh ];then
-	mv ~/.zshrc ~/.zshrc.listen-my-zsh-old-version;
+	cp ~/.zshrc ~/.zshrc.listen-my-zsh-old-version;
     else
-	mv ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
+	cp ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
     fi
+    read -p "Do you want to replace '~/.zshrc' with the new online version? [Y/n]: " replace
+    case "$replace" in 
+	y|Y )
+	    rm ~/.zshrc
+	    UPDATE_ZSHRC="TRUE"
+	    ;;
+	n|N )
+	    UPDATE_ZSHRC="FALSE"
+	    ;;
+	* )
+	    UPDATE_ZSHRC="FALSE"
+	    ;;
+    esac
 fi
 
 
 if [[ "$OSTYPE" == 'linux-gnu' ]]; then
-    echo "  copying .zshrc for Linux ..."
+    echo "  updating .zshrc for Linux ..."
     cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
-    echo "  copying .zshrc for Mac OS ..."
-    cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
-    echo "  copying .zshfunc for Mac OS ..."
+    if [[ "$UPDATE_ZSHRC" == "TRUE" ]]
+	echo "  updating .zshrc for Mac OS ..."
+	cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
+    else
+	echo "  .zshrc not updated. "
+    fi
+    echo "  updating .zshfunc for Mac OS ..."
     cp ~/.listen-my-zsh/Mac/.zshfunc ~/.zshfunc
-    echo "  copying .zshfuncs/ folder for Mac OS ..."
+    echo "  updating .zshfuncs/ folder for Mac OS ..."
     if [ -d ~/.zshfuncs ];then
 	if [ -d ~/.zshfuncs-old-version ];then
 	    rm -r ~/.zshfuncs-old-version
