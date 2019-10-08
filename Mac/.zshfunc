@@ -9,6 +9,11 @@
 # *********************************************************
 
 
+function lzsh () {
+    sh ~/.zshfuncs/installListenMyZsh.sh
+}
+
+
 function gurl () {
     # Get Current Git Repository's URL
     wd=$(pwd)
