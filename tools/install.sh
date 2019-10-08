@@ -75,7 +75,7 @@ fi
 printf "${BLUE}Looking for an existing zsh config...${NORMAL}\n"
 if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     printf "${YELLOW}Found ~/.zshrc.${NORMAL} ${GREEN}Backing up to ~/.zshrc.pre-listen-my-zsh${NORMAL}\n";
-    if [ -f ~/.zshrc.pre-listen-my-zsh ];then
+    if [ -f ~/.zshrc.pre-listen-my-zsh ]; then
 	cp ~/.zshrc ~/.zshrc.listen-my-zsh-old-version;
     else
 	cp ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
@@ -100,7 +100,7 @@ if [[ "$OSTYPE" == 'linux-gnu' ]]; then
     echo "  updating .zshrc for Linux ..."
     cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
-    if [[ "$UPDATE_ZSHRC" == "TRUE" ]]
+    if [[ "$UPDATE_ZSHRC" == "TRUE" ]]; then
 	echo "  updating .zshrc for Mac OS ..."
 	cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
     else
