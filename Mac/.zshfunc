@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2019-03-03 10:00
-# * Last modified : 2019-10-08 17:06
+# * Last modified : 2019-10-25 22:46
 # * Filename      : .zshfunc
 # * Description   : Customized ZSH Functions
 # *********************************************************
@@ -16,11 +16,17 @@ function lzsh () {
 
 function gurl () {
     # Get Current Git Repository's URL
-    wd=$(pwd)
-    if [[ -d ${wd}/.git ]];then
-	sh ~/.zshfuncs/getGitUrl.sh
-    else
-	echo "[Invalid]: Current directory is not a Git Repository! "
+    until [[ $(pwd) = ${HOME} ]]; do
+	if [[ -d $(pwd)/.git ]];then
+	    sh ~/.zshfuncs/getGitUrl.sh
+	    check="T"
+	    break
+	else
+	    cd ../
+	fi
+    done
+    if [[ ${check} != "T" ]];then
+	echo "[Invalid]: Neither current directory nor any of its' parents directory is a Git Repository! "
     fi
 }
 
