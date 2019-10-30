@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2019-03-03 10:00
-# * Last modified : 2019-10-25 22:46
+# * Last modified : 2019-10-30 17:25
 # * Filename      : .zshfunc
 # * Description   : Customized ZSH Functions
 # *********************************************************
@@ -27,6 +27,37 @@ function gurl () {
     done
     if [[ ${check} != "T" ]];then
 	echo "[Invalid]: Neither current directory nor any of its' parents directory is a Git Repository! "
+    fi
+}
+
+
+function github () {
+    folder=${HOME}/GitHubRepo
+    if [[ -d $folder ]]; then
+	cd $folder
+    else
+	read -p "'${folder}' does not exis, do you want to creat one? [Y/n]: " creat
+	case "$creat" in 
+	    y|Y )
+		mkdir $folder
+		cd $folder
+		;;
+	    n|N )
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	    * ) 
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	esac
+    fi
+    echo ''
+    echo '--- Welcome to GitHub Repos ---'
+    echo ''
+    ls -l
+    if [[ -f .welcome2GitHub.sh ]]; then
+	sh ./.welcome2GitHub.sh
     fi
 }
 

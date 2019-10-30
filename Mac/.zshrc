@@ -182,7 +182,8 @@ alias mlt="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.go2project.sh && . ./.
 alias mlttb="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.ssh.init.sh"
 alias mltbl="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.bl.ssh.init.sh"
 
-alias cvlatex="cd ~/OverleafProjects/SenLEI-CV-Latex && sh .pull.init.sh"
+# Quick to GitHub Repos
+alias cvlatex="cd ~/GitHubRepo/SenLEI-CV-Latex && sh .pull.init.sh"
 
 
 
