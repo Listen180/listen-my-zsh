@@ -3,14 +3,13 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-12-28 09:58
-# * Last modified : 2019-08-20 11:44
+# * Last modified : 2019-10-30 18:29
 # * Filename      : install.sh
 # * Description   : Install listen-my-zsh
 # *********************************************************
 
 
-# Use colors, but only if connected to a terminal, and that terminal
-# supports them.
+# Use colors, but only if connected to a terminal, and that terminal supports them.
 if which tput >/dev/null 2>&1; then
     ncolors=$(tput colors)
 fi
@@ -30,8 +29,7 @@ else
     NORMAL=""
 fi
 
-# Only enable exit-on-error after the non-critical colorization stuff,
-# which may fail on systems lacking tput or terminfo
+# Only enable exit-on-error after the non-critical colorization stuff, which may fail on systems lacking tput or terminfo
 set -e
 
 
