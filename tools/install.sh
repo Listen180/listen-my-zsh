@@ -168,22 +168,19 @@ read -p "Do you want to replace '~/.vimrc' with the new online version? [Y/n]: "
 case "$replace" in 
 y|Y )
     rm ~/.vimrc
-    UPDATE_VIMRC="TRUE"
-    ;;
-n|N )
-    UPDATE_VIMRC="FALSE"
-    ;;
-* )
-    UPDATE_VIMRC="FALSE"
-    ;;
-esac
-if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
-    echo "  updating .zshrc for Mac OS ..."
+    echo "  updating .vimrc for Mac OS ... "
     cp ~/.listen-my-zsh/Mac/vim/.vimrc ~/.vimrc
     source ~/.vimrc
-fi
+    ;;
+n|N )
+    echo "  .vimrc not changed. "
+    ;;
+* )
+    echo "  .vimrc not changed. "
+    ;;
+esac
 
-
+echo ''
 printf "${GREEN}"
 echo '    __    _      __                                              __   '
 echo '   / /   (_)____/ /____  ____     ____ ___  __  __   ____  _____/ /_  '
