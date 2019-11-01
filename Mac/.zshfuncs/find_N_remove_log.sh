@@ -9,7 +9,7 @@
 # *********************************************************
 
 # Clean some log like files of LaTex Compiling
-rm_list=(log aux dvi out synctex.gz)
+rm_list=(log aux dvi out synctex.gz nav snm toc)
 empty="True"
 for f in "${rm_list[@]}"; do
     res=$(find . -name \*.${f} -type f)
