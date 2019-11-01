@@ -54,22 +54,22 @@ if [ -d ~/.listen-my-zsh ]; then
             echo ""
             ;;
         n|N )
-	    echo ""
-	    read -p "Do you want to contunue installation using old version of listen-my-zsh? [Y/n]: " install_old
-	    case $install_old in
-		y|Y )
-		    echo "Continue installation (old version) ... "
-		    ;;
-		* )
-		    echo "Aborted. "
-		    exit
-		    ;;
-	    esac
+        echo ""
+        read -p "Do you want to contunue installation using old version of listen-my-zsh? [Y/n]: " install_old
+        case $install_old in
+        y|Y )
+            echo "Continue installation (old version) ... "
+            ;;
+        * )
+            echo "Aborted. "
+            exit
+            ;;
+        esac
             ;;
         * )
             echo "Invalid input. (Please choose 'y' or 'n')"
             echo ""
-	    exit
+        exit
             ;;
     esac
 else
@@ -84,22 +84,22 @@ printf "${BLUE}Looking for an existing zsh config...${NORMAL}\n"
 if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     printf "${YELLOW}Found ~/.zshrc.${NORMAL} ${GREEN}Backing up to ~/.zshrc.pre-listen-my-zsh${NORMAL}\n";
     if [ -f ~/.zshrc.pre-listen-my-zsh ]; then
-	cp ~/.zshrc ~/.zshrc.listen-my-zsh-old-version;
+        cp ~/.zshrc ~/.zshrc.listen-my-zsh-old-version;
     else
-	cp ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
+        cp ~/.zshrc ~/.zshrc.pre-listen-my-zsh;
     fi
     read -p "Do you want to replace '~/.zshrc' with the new online version? [Y/n]: " replace
     case "$replace" in 
-	y|Y )
-	    rm ~/.zshrc
-	    UPDATE_ZSHRC="TRUE"
-	    ;;
-	n|N )
-	    UPDATE_ZSHRC="FALSE"
-	    ;;
-	* )
-	    UPDATE_ZSHRC="FALSE"
-	    ;;
+    y|Y )
+        rm ~/.zshrc
+        UPDATE_ZSHRC="TRUE"
+        ;;
+    n|N )
+        UPDATE_ZSHRC="FALSE"
+        ;;
+    * )
+        UPDATE_ZSHRC="FALSE"
+        ;;
     esac
 else
     UPDATE_ZSHRC="TRUE"
@@ -111,19 +111,19 @@ if [[ "$OSTYPE" == 'linux-gnu' ]]; then
     cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
     if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
-	echo "  updating .zshrc for Mac OS ..."
-	cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
+        echo "  updating .zshrc for Mac OS ..."
+        cp ~/.listen-my-zsh/Mac/.zshrc ~/.zshrc
     else
-	echo "  .zshrc not updated. "
+        echo "  .zshrc not updated. "
     fi
     echo "  updating .zshfunc for Mac OS ..."
     cp ~/.listen-my-zsh/Mac/.zshfunc ~/.zshfunc
     echo "  updating .zshfuncs/ folder for Mac OS ..."
     if [ -d ~/.zshfuncs ];then
-	if [ -d ~/.zshfuncs-old-version ];then
-	    rm -r ~/.zshfuncs-old-version
-	fi
-	mv ~/.zshfuncs ~/.zshfuncs-old-version;
+        if [ -d ~/.zshfuncs-old-version ];then
+            rm -r ~/.zshfuncs-old-version
+        fi
+        mv ~/.zshfuncs ~/.zshfuncs-old-version;
     fi
     cp -r ~/.listen-my-zsh/Mac/.zshfuncs ~/.zshfuncs
 else
@@ -162,6 +162,26 @@ cp ~/.listen-my-zsh/custom/themes/LEISen.zsh-theme ~/.oh-my-zsh/custom/themes/my
 alias actzsh="source ~/.zshrc"
 
 #rm -rf ~/.listen-my-zsh
+
+## VIM Configuration
+read -p "Do you want to replace '~/.vimrc' with the new online version? [Y/n]: " replace
+case "$replace" in 
+y|Y )
+    rm ~/.vimrc
+    UPDATE_VIMRC="TRUE"
+    ;;
+n|N )
+    UPDATE_VIMRC="FALSE"
+    ;;
+* )
+    UPDATE_VIMRC="FALSE"
+    ;;
+esac
+if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
+    echo "  updating .zshrc for Mac OS ..."
+    cp ~/.listen-my-zsh/Mac/vim/.vimrc ~/.vimrc
+    source ~/.vimrc
+fi
 
 
 printf "${GREEN}"
