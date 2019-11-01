@@ -170,7 +170,6 @@ y|Y )
     rm ~/.vimrc
     echo "  updating .vimrc for Mac OS ... "
     cp ~/.listen-my-zsh/Mac/vim/.vimrc ~/.vimrc
-    source ~/.vimrc
     ;;
 n|N )
     echo "  .vimrc not changed. "
