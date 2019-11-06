@@ -11,9 +11,9 @@
 # Clean some log like files of LaTex Compiling
 ignore_list=(log aux dvi out synctex.gz nav snm toc pdf)
 for f in "${ignore_list[@]}"; do
-    reg="**/*.${f}"
+    reg="/*.${f}"
     if [[ -f ./.gitignore ]]; then
-    check=$(cat ./.gitignore | grep "\*\*/\*.${f}")
+    check=$(cat ./.gitignore | grep "/\*.${f}")
     if [[ "${check}" == *"${reg}"* ]];then
         echo "Already ignored: ${check}"
     else
