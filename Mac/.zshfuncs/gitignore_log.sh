@@ -9,7 +9,7 @@
 # *********************************************************
 
 # Clean some log like files of LaTex Compiling
-ignore_list=(log aux dvi out synctex.gz nav snm toc pdf)
+ignore_list=(log aux dvi out synctex.gz nav snm toc pdf bcf idx lof lot run.xml)
 for f in "${ignore_list[@]}"; do
     reg="/*.${f}"
     if [[ -f ./.gitignore ]]; then
