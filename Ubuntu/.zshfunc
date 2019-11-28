@@ -1,0 +1,193 @@
+# 
+# *********************************************************
+# * Author        : LEI Sen
+# * Email         : sen.lei@outlook.com
+# * Create time   : 2019-03-03 10:00
+# * Last modified : 2019-10-30 17:25
+# * Filename      : .zshfunc
+# * Description   : Customized ZSH Functions
+# *********************************************************
+
+
+function lzsh () {
+    sh ~/.zshfuncs/installListenMyZsh.sh
+}
+
+
+function gurl () {
+    # Get Current Git Repository's URL
+    until [[ $(pwd) = ${HOME} ]]; do
+	if [[ -d $(pwd)/.git ]];then
+	    sh ~/.zshfuncs/getGitUrl.sh
+	    check="T"
+	    break
+	else
+	    cd ../
+	fi
+    done
+    if [[ ${check} != "T" ]];then
+	echo "[Invalid]: Neither current directory nor any of its' parents directory is a Git Repository! "
+    fi
+}
+
+
+function github () {
+    folder=${HOME}/GitHubRepo
+    if [[ -d $folder ]]; then
+	cd $folder
+    else
+	read -p "'${folder}' does not exis, do you want to creat one? [Y/n]: " creat
+	case "$creat" in 
+	    y|Y )
+		mkdir $folder
+		cd $folder
+		;;
+	    n|N )
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	    * ) 
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	esac
+    fi
+    echo ''
+    echo '--- Welcome to GitHub Repos ---'
+    echo ''
+    ls -l
+    if [[ -f .welcome2GitHub.sh ]]; then
+	sh ./.welcome2GitHub.sh
+    fi
+}
+
+
+function overleaf () {
+    folder=~/OverleafProjects
+    if [[ -d $folder ]]; then
+	cd $folder
+    else
+	read -p "'${folder}' does not exis, do you want to creat one? [Y/n]: " creat
+	case "$creat" in 
+	    y|Y )
+		mkdir $folder
+		cd $folder
+		;;
+	    n|N )
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	    * ) 
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	esac
+    fi
+    echo ''
+    echo '--- Welcome to Overleaf Projects ---'
+    echo ''
+    ls -l
+    if [[ -f .welcome2overleaf.sh ]]; then
+	sh ./.welcome2overleaf.sh
+    fi
+}
+
+
+function ccl () {
+    # Clean some log like files of LaTex Compiling
+    wd=$(pwd)
+    if [[ ${wd} == "${HOME}/OverleafProjects"* ]];then
+	sh ~/.zshfuncs/find_N_remove_log.sh
+    else
+	echo "[WARNING]: Current directory is not permitted for this operation! "
+    fi
+}
+
+
+function ignorelog () {
+    # Clean some log like files of LaTex Compiling
+    sh ~/.zshfuncs/gitignore_log.sh
+}
+
+
+function checkname() {
+    ## Check ComputerName, HostName, and LocalHostName
+    for s in ComputerName HostName LocalHostName; do
+	out=$(scutil --get $s);
+	echo "${s}:\t${out}"
+    done
+    echo ''
+    echo "You can use 'sudo scutil --set pref [newval]' to reset the name(s). "
+}
+
+
+function ws() {
+    ## Change working directory to WorkSpace
+    folder=~/WorkSpace
+    if [[ -d $folder ]]; then
+	cd $folder
+    else
+	read -p "'${folder}' does not exis, do you want to creat one? [Y/n]: " creat
+	case "$creat" in 
+	    y|Y )
+		mkdir $folder
+		cd $folder
+		;;
+	    n|N )
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	    * ) 
+		echo "Aborte, '${folder}' was not created. "
+		exit
+		;;
+	esac
+    fi
+    ls -l
+    if [[ -f .welcome2overleaf.sh ]]; then
+	./.welcome2workspace.sh
+    fi
+}
+
+
+function wanip(){
+    #PublicIp=$(curl getip.name)
+    wanipv4=$(dig @resolver1.opendns.com A myip.opendns.com +short -4)
+    wanipv6=$(dig @resolver1.opendns.com A myip.opendns.com +short -6)
+    echo "WAN-IP-v4: ${wanipv4}"
+    echo "WAN-IP-v6: ${wanipv6}"
+    echo 'Finding locations ...'
+    #curl http://api.db-ip.com/v2/free/$wanipv4
+    curl ipinfo.io/$wanipv4
+    echo ''
+    echo '... Done. '
+}
+
+
+# function powerline_precmd() {
+#     PS1="$(powerline-shell --shell zsh $?)"
+# }
+#
+# function install_powerline_precmd() {
+#     for s in "${precmd_functions[@]}"; do
+# 	if [ "$s" = "powerline_precmd" ]; then
+# 	    return
+# 	fi
+#     done
+#     precmd_functions+=(powerline_precmd)
+# }
+# if [ "$TERM" != "linux" ]; then
+#     install_powerline_precmd
+# fi
+
+
+#fpath=(~/.zsh/completion $fpath)
+
+#autoload -Uz compinit && compinit -i
+
+
+#etc=/Applications/Docker.app/Contents/Resources/etc
+#ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker
+#ln -s $etc/docker-machine.zsh-completion /usr/local/share/zsh/site-functions/_docker-machine
+#ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
+

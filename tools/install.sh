@@ -109,8 +109,22 @@ fi
 
 
 if [[ "$OSTYPE" == 'linux-gnu' ]]; then
-    echo "  updating .zshrc for Linux ..."
-    cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
+    if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
+	echo "  updating .zshrc for Linux ..."
+	cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
+    else
+        echo "  .zshrc not updated. "
+    fi
+    echo "  updating .zshfunc for Mac OS ..."
+    cp ~/.listen-my-zsh/Ubuntu/.zshfunc ~/.zshfunc
+    echo "  updating .zshfuncs/ folder for Mac OS ..."
+    if [ -d ~/.zshfuncs ];then
+        if [ -d ~/.zshfuncs-old-version ];then
+            rm -r ~/.zshfuncs-old-version
+        fi
+        mv ~/.zshfuncs ~/.zshfuncs-old-version;
+    fi
+    cp -r ~/.listen-my-zsh/Ubuntu/.zshfuncs ~/.zshfuncs
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
     if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
         echo "  updating .zshrc for Mac OS ..."
@@ -170,7 +184,7 @@ read -p "Do you want to replace '~/.vimrc' with the new online version? [Y/n]: "
 case "$replace" in 
 y|Y )
     rm ~/.vimrc
-    echo "  updating .vimrc for Mac OS ... "
+    echo "  updating .vimrc ... "
     cp ~/.listen-my-zsh/Mac/vim/.vimrc ~/.vimrc
     ;;
 n|N )
