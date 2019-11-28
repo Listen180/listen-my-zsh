@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-10-19 17:30
-# * Last modified : 2018-10-29 10:07
+# * Last modified : 2019-11-28 16:31
 # * Filename      : .zshrc
 # * Description   : 
 # *********************************************************
@@ -68,24 +68,24 @@ EOF
 export PATH=$HOME/.local/bin:$PATH
 
 # Path to Anaconda
-export ANACONDA_HOME=$HOME/anaconda3
-export PATH=$ANACONDA_HOME/bin:$PATH
+#export ANACONDA_HOME=$HOME/anaconda3
+#export PATH=$ANACONDA_HOME/bin:$PATH
 
 # Path to Spark
-export SPARK_HOME=/usr/local/spark
-export PATH=$SPARK_HOME/bin:$PATH
+#export SPARK_HOME=/usr/local/spark
+#export PATH=$SPARK_HOME/bin:$PATH
 
 # Path to Hadoop
-export HADOOP_HOME=/usr/local/hadoop
-export PATH=$HADOOP_HOME/bin:$PATH
+#export HADOOP_HOME=/usr/local/hadoop
+#export PATH=$HADOOP_HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 #export PATH=$PATH:$ZSH
 
 # Path to Java
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/
-export PATH=$PATH:$JAVA_HOME
+#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/
+#export PATH=$PATH:$JAVA_HOME
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -241,3 +241,12 @@ export PATH="$PATH:$HOME/.rvm/bin"
 #     install_powerline_precmd
 # fi
 
+
+## Load Customized Functions
+if [[ -f ~/.zshfunc ]]; then
+    source ~/.zshfunc
+    echo "Customized Functions Loaded. "
+    if [[ -f ~/.zshfunc.readme  ]]; then
+	cat ~/.zshfunc.readme
+    fi
+fi
