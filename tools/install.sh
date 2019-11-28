@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-12-28 09:58
-# * Last modified : 2019-10-30 18:29
+# * Last modified : 2019-11-28 16:04
 # * Filename      : install.sh
 # * Description   : Install listen-my-zsh
 # *********************************************************
@@ -40,6 +40,8 @@ set -e
 #    echo ""
 #fi
 
+## Add plugins (into oh-my-zsh custom folder)
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 ## Install listen-my-zsh
 if [ -d ~/.listen-my-zsh ]; then
