@@ -34,14 +34,11 @@ set -e
 
 
 ## Install oh-my-zsh
-#if [ ! -d ~/.listen-my-zsh ]; then
+#if [ ! -d ~/.oh-my-zsh ]; then
 #    echo " Installing oh-my-zsh ... "
 #   sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 #    echo ""
 #fi
-
-## Add plugins (into oh-my-zsh custom folder)
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 ## Install listen-my-zsh
 if [ -d ~/.listen-my-zsh ]; then
@@ -166,34 +163,43 @@ fi
 
 
 ## Copy the custom theme into ~/.oh-my-zsh/themes/
-if [ -f ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme ]; then
-    rm ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
+if [ -f ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/mytheme.zsh-theme ]; then
+    rm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/mytheme.zsh-theme
 fi
 # echo "  copying custom themes into oh-my-zsh custom folder..."
 # cp ~/.listen-my-zsh/Ubuntu/mytheme.zsh-theme ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
 echo "  copying custom themes into oh-my-zsh custom folder..."
-cp ~/.listen-my-zsh/custom/themes/LEISen.zsh-theme ~/.oh-my-zsh/custom/themes/mytheme.zsh-theme
+cp ~/.listen-my-zsh/custom/themes/LEISen.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/mytheme.zsh-theme
 
 ## Make an alias for activatign ~/.zshrc 
 alias actzsh="source ~/.zshrc"
 
-#rm -rf ~/.listen-my-zsh
 
 ## VIM Configuration
-read -p "Do you want to replace '~/.vimrc' with the new online version? [Y/n]: " replace
-case "$replace" in 
-y|Y )
-    rm ~/.vimrc
-    echo "  updating .vimrc ... "
-    cp ~/.listen-my-zsh/Mac/vim/.vimrc ~/.vimrc
-    ;;
-n|N )
-    echo "  .vimrc not changed. "
-    ;;
-* )
-    echo "  .vimrc not changed. "
-    ;;
-esac
+echo "  configuring vim ..."
+if [ -f ~/.vimrc ]; then
+    read -p "Do you want to replace '~/.vimrc' with the new online version? [Y/n]: " replace
+    case "$replace" in 
+    y|Y )
+        rm ~/.vimrc
+        echo "  updating .vimrc ... "
+        cp ~/.listen-my-zsh/Mac/vim/.vimrc ~/.vimrc
+        ;;
+    n|N )
+        echo "  .vimrc not changed. "
+        ;;
+    * )
+        echo "  .vimrc not changed. "
+        ;;
+    esac
+else
+    echo "  .vimrc not existed. [operation ignored]"
+fi
+
+
+## Add plugins (into oh-my-zsh custom folder)
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 
 echo ''
 printf "${GREEN}"
@@ -208,3 +214,18 @@ printf "${NORMAL}"
 
 ## Activate new [.zshrc]
 printf "${YELLOW}Restart the terminal to activate the new configuration!${NORMAL}\n";
+
+# read -p "Do you want to remove [~/.listen-my-zsh] folder? [Y/n]: " remove
+# case "$remove" in 
+#     y|Y )
+#         rm -rf ~/.listen-my-zsh
+#         echo "  [~/.listen-my-zsh] removed. "
+#         ;;
+#     n|N )
+#         echo "  remove operation aborted. "
+#         ;;
+#     * )
+#         echo "  remove operation aborted. "
+#         ;;
+# esac
+
