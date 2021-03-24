@@ -2,8 +2,8 @@
 # *********************************************************
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
-# * Create time   : 
-# * Last modified : 
+# * Create time   : 2021-03-24 20:50
+# * Last modified : 2021-03-24 20:55
 # * Filename      : .zshrc
 # * Description   : 
 # *********************************************************
