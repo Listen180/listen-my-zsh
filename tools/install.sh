@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-12-28 09:58
-# * Last modified : 2019-11-28 16:04
+# * Last modified : 2021-03-24 20:52
 # * Filename      : install.sh
 # * Description   : Install listen-my-zsh
 # *********************************************************
@@ -112,9 +112,9 @@ if [[ "$OSTYPE" == 'linux-gnu' ]]; then
     else
         echo "  .zshrc not updated. "
     fi
-    echo "  updating .zshfunc for Mac OS ..."
+    echo "  updating .zshfunc for Linux ..."
     cp ~/.listen-my-zsh/Ubuntu/.zshfunc ~/.zshfunc
-    echo "  updating .zshfuncs/ folder for Mac OS ..."
+    echo "  updating .zshfuncs/ folder for Linux ..."
     if [ -d ~/.zshfuncs ];then
         if [ -d ~/.zshfuncs-old-version ];then
             rm -r ~/.zshfuncs-old-version
@@ -122,6 +122,23 @@ if [[ "$OSTYPE" == 'linux-gnu' ]]; then
         mv ~/.zshfuncs ~/.zshfuncs-old-version;
     fi
     cp -r ~/.listen-my-zsh/Ubuntu/.zshfuncs ~/.zshfuncs
+elif [[ "$OSTYPE" == 'linux-gnueabihf' ]]; then
+    if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
+	echo "  updating .zshrc for RasPi ..."
+	cp ~/.listen-my-zsh/RasPi/.zshrc ~/.zshrc
+    else
+        echo "  .zshrc not updated. "
+    fi
+    echo "  updating .zshfunc for RasPi ..."
+    cp ~/.listen-my-zsh/RasPi/.zshfunc ~/.zshfunc
+    echo "  updating .zshfuncs/ folder for RasPi ..."
+    if [ -d ~/.zshfuncs ];then
+        if [ -d ~/.zshfuncs-old-version ];then
+            rm -r ~/.zshfuncs-old-version
+        fi
+        mv ~/.zshfuncs ~/.zshfuncs-old-version;
+    fi
+    cp -r ~/.listen-my-zsh/RasPi/.zshfuncs ~/.zshfuncs
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
     if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
         echo "  updating .zshrc for Mac OS ..."
