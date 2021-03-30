@@ -15,6 +15,7 @@
 
 ## Some basic path
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:/sbin
 
 ## Path to defult Python
 # export PYTHON_PATH=/usr/local/bin/
