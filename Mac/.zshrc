@@ -147,9 +147,8 @@ source $ZSH/oh-my-zsh.sh
 # make python3 as defult
 # alias python=python3
 # Some basic aliases
-alias la="ls -a"
-alias ll="ls -l -h"
-alias lal="ls -a -l -h"
+alias l="ls -l -h"
+alias ll="ls -l -h -a"
 alias cc="clear"
 # ZSH aliases
 alias actzsh="source ~/.zshrc"
@@ -178,13 +177,6 @@ alias configconda="vim ~/.condarc"
 alias pf="ps -ef|grep"
 
 # Quick to specific projects
-alias mlt="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.go2project.sh && . ./.TEMP/go2project.sh && ls"
-alias mlttb="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.ssh.init.sh"
-alias mltbl="cd ~/WorkSpace/MLT/ && ./.welcome2mlt.sh && ./.bl.ssh.init.sh"
-
-# Quick to GitHub Repos
-alias cvlatex="cd ~/GitHubRepo/SenLEI-CV-Latex && sh .pull.init.sh"
-
 
 
 ## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
