@@ -1,4 +1,4 @@
-map 4 ms:call AddAuthor()<cr>
+map 0 ms:call AddAuthor()<cr>
 
 " Turn on syntax highlighting.
 syntax enable
