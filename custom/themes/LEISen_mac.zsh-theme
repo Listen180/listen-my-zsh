@@ -58,7 +58,7 @@ local time_dis="%{$fg[white]%}♨︎ [%*]"
 
 
 ## ╭─# ⌾ ℹ︎ ⏚ ☮︎ ☯︎ ⚉ ⚇ ♅ ♇ ♁ ☄︎ ☿ ☉ ♎︎ ♍︎ ♋︎ ♉︎ ♌︎ ☀︎ 
-local LS_info_symbol="%{$terminfo[bold]$fg[blue]%}╭─$(toon)%{$reset_color%}"
+local LS_info_symbol="%{$terminfo[bold]$fg[blue]%}╭─$(macLogo)%{$reset_color%}"
 
 ## ╰─$ ⌘ ⌾ ⚛︎ ♕ ♥︎ ✪ ⍟ 🀀 🀂 🀁 🀃 🀊 🀏 ☠︎ ☢︎ ☣︎ ♲ ♻︎ ⚡︎ ⚓︎ ✈︎ ♨︎ ♎︎ ❖ ✡︎ ❄︎ ⚙︎ ⎈ ⌚︎ ☕︎ ℞ ∞ ⨴ ⨵ ⨳ ⨭ ⨮ ⩷ ⩸ ⦓ ⦔ ⦕ ⦖ 𝓛 𝓢 𝓓 𝓟 𝜆 𝚲 
 local LS_run_symbol="%(!.%{$terminfo[bold]$fg[red]%}╰─☠️%{$reset_color%}.%{$terminfo[bold]$fg[red]%}╰─℞%{$reset_color%})"
