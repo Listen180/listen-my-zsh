@@ -68,7 +68,7 @@ local LS_info="%{$reset_color%}\
 %{$reset_color%}\
 %{$fg[white]%}@ \
 %{$fg[green]%}%m \
-%{$fg[white]%}in \
+%{$fg[white]%}\uF115 \
 %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
 
@@ -90,27 +90,11 @@ ${hg_info}\
 "
 
 
-# if [[ "$USERNAME"="root" ]]
-#if [[ $UID=0 ]]
-#then
-#PROMPT="
-#$LS_info_symbol "
-#PROMPT+="$LS_info_root"
-#PROMPT+="%{$fg[white]%}[%*] $exit_code"
-#PROMPT+="
-#$LS_run_symbol "
-#else
 PROMPT="
 $LS_info_symbol "
 PROMPT+="$LS_info"
 PROMPT+="$time_dis $exit_code"
 PROMPT+="
 $LS_run_symbol "
-#fi
 
-
-
-
-
-# ln -s /Users/leisen/.zshrc /var/root/.zshrc
 
