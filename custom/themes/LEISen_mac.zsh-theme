@@ -68,7 +68,7 @@ local LS_info="%{$reset_color%}\
 %{$reset_color%}\
 %{$fg[white]%}@ \
 %{$fg[green]%}%m \
-%{$fg[white]%}\uF115 \
+%{$fg[white]%}'\uF115'$s \
 %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
 
