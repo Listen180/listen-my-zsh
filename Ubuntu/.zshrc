@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2018-10-19 17:30
-# * Last modified : 2019-11-28 16:31
+# * Last modified : 2022-06-09 10:50
 # * Filename      : .zshrc
 # * Description   : 
 # *********************************************************
@@ -17,27 +17,6 @@ echo """
                                        
         -- Welcome to ZSH --
 """
-
-#echo """
-#UUUUUUUU     UUUUUUUU       CCCCCCCCCCCCC   SSSSSSSSSSSSSSS BBBBBBBBBBBBBBBBB   
-#U::::::U     U::::::U    CCC::::::::::::C SS:::::::::::::::SB::::::::::::::::B  
-#U::::::U     U::::::U  CC:::::::::::::::CS:::::SSSSSS::::::SB::::::BBBBBB:::::B 
-#UU:::::U     U:::::UU C:::::CCCCCCCC::::CS:::::S     SSSSSSSBB:::::B     B:::::B
-# U:::::U     U:::::U C:::::C       CCCCCCS:::::S              B::::B     B:::::B
-# U:::::D     D:::::UC:::::C              S:::::S              B::::B     B:::::B
-# U:::::D     D:::::UC:::::C               S::::SSSS           B::::BBBBBB:::::B 
-# U:::::D     D:::::UC:::::C                SS::::::SSSSS      B:::::::::::::BB  
-# U:::::D     D:::::UC:::::C                  SSS::::::::SS    B::::BBBBBB:::::B 
-# U:::::D     D:::::UC:::::C                     SSSSSS::::S   B::::B     B:::::B
-# U:::::D     D:::::UC:::::C                          S:::::S  B::::B     B:::::B
-# U::::::U   U::::::U C:::::C       CCCCCC            S:::::S  B::::B     B:::::B
-# U:::::::UUU:::::::U  C:::::CCCCCCCC::::CSSSSSSS     S:::::SBB:::::BBBBBB::::::B
-#  UU:::::::::::::UU    CC:::::::::::::::CS::::::SSSSSS:::::SB:::::::::::::::::B 
-#    UU:::::::::UU        CCC::::::::::::CS:::::::::::::::SS B::::::::::::::::B  
-#      UUUUUUUUU             CCCCCCCCCCCCC SSSSSSSSSSSSSSS   BBBBBBBBBBBBBBBBB   
-#"""
-
-
 
 
 
@@ -193,9 +172,8 @@ source $ZSH/oh-my-zsh.sh
 # make python3 as defult
 # alias python=python3
 # Some basic aliases
-alias la="ls -a"
-alias ll="ls -l"
-alias lal="ls -a -l"
+alias l="ls -l -h"
+alias ll="ls -a -l -h"
 alias cc="clear"
 # ZSH aliases
 alias actzsh="source ~/.zshrc"
