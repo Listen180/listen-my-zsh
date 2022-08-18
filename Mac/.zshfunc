@@ -191,3 +191,10 @@ function wanip(){
 #ln -s $etc/docker-machine.zsh-completion /usr/local/share/zsh/site-functions/_docker-machine
 #ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
 
+
+function dcc () {
+    # Remove all docker images with <none> tag
+    echo "Removing all docker images with <none> tag ... "
+    docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+    echo "... Done. "
+}
