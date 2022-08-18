@@ -198,3 +198,18 @@ function dcc () {
     docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
     echo "... Done. "
 }
+
+function dls () {
+    # list all docker images
+    docker images
+}
+
+function dcls () {
+    # list all docker containers
+    docker container ls
+}
+
+function dps () {
+    # list all docker process
+    docker ps
+}
