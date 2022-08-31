@@ -99,7 +99,8 @@ function ccl () {
     if [[ ${wd} == "${HOME}/OverleafProjects"* ]];then
 	sh ~/.zshfuncs/find_N_remove_log.sh
     else
-	echo "[WARNING]: Current directory is not permitted for this operation! "
+	echo "[WARNING]: Current directory is not safe for this operation! "
+	sh ~/.zshfuncs/find_N_remove_log.sh
     fi
 }
 
