@@ -73,8 +73,8 @@ fi
 
 if [[ "$OSTYPE" == 'linux-gnu' ]]; then
     if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
-	echo "  updating .zshrc for Linux ..."
-	cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
+        echo "  updating .zshrc for Linux ..."
+        cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
     else
         echo "  .zshrc not updated. "
     fi
@@ -90,8 +90,8 @@ if [[ "$OSTYPE" == 'linux-gnu' ]]; then
     cp -r ~/.listen-my-zsh/Ubuntu/.zshfuncs ~/.zshfuncs
 elif [[ "$OSTYPE" == 'linux-gnueabihf' ]]; then
     if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
-	echo "  updating .zshrc for RasPi ..."
-	cp ~/.listen-my-zsh/RasPi/.zshrc ~/.zshrc
+        echo "  updating .zshrc for RasPi ..."
+        cp ~/.listen-my-zsh/RasPi/.zshrc ~/.zshrc
     else
         echo "  .zshrc not updated. "
     fi
