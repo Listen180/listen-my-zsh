@@ -123,7 +123,7 @@ elif [[ "$OSTYPE" == 'darwin'* ]]; then
     fi
     cp -r ~/.listen-my-zsh/Mac/.zshfuncs ~/.zshfuncs
 else
-    echo "  OS-Type NOT matched: ${OS} "
+    echo "  OS-Type NOT matched: ${OSTYPE} "
     echo "    (No file copied)"
 fi
 
