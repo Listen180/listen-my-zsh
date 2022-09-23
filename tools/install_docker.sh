@@ -124,7 +124,23 @@ elif [[ "$OSTYPE" == 'darwin'* ]]; then
     cp -r ~/.listen-my-zsh/Mac/.zshfuncs ~/.zshfuncs
 else
     echo "  OS-Type NOT matched: ${OSTYPE} "
-    echo "    (No file copied)"
+    #echo "    (No file copied)"
+    if [[ "$UPDATE_ZSHRC" == 'TRUE' ]]; then
+        echo "  updating .zshrc for Linux ..."
+        cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
+    else
+        echo "  .zshrc not updated. "
+    fi
+    echo "  updating .zshfunc for Linux ..."
+    cp ~/.listen-my-zsh/Ubuntu/.zshfunc ~/.zshfunc
+    echo "  updating .zshfuncs/ folder for Linux ..."
+    if [ -d ~/.zshfuncs ];then
+        if [ -d ~/.zshfuncs-old-version ];then
+            rm -r ~/.zshfuncs-old-version
+        fi
+        mv ~/.zshfuncs ~/.zshfuncs-old-version;
+    fi
+    cp -r ~/.listen-my-zsh/Ubuntu/.zshfuncs ~/.zshfuncs
 fi
 
 
