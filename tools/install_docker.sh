@@ -149,8 +149,12 @@ fi
 if [ -f ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/mytheme.zsh-theme ]; then
     rm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/mytheme.zsh-theme
 fi
-echo "  copying custom themes into oh-my-zsh custom folder..."
-cp ~/.listen-my-zsh/custom/themes/LEISen.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/mytheme.zsh-theme
+if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/ ]; then
+    echo "  copying custom themes into oh-my-zsh custom folder..."
+    cp ~/.listen-my-zsh/custom/themes/LEISen.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/mytheme.zsh-theme
+else
+    echo "  .oh-my-zsh folder not found. ${ZSH_CUSTOM}"
+fi
 
 ## Make an alias for activatign ~/.zshrc 
 alias actzsh="source ~/.zshrc"
