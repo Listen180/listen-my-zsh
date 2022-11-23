@@ -12,15 +12,13 @@ URL=$1
 
 
 RLIM=5
-
-
 RNUM=0
 RET=1
 until [ ${RET} -eq 0 ]; do
     echo "[+] Getting info ..."
     youtube-dl -F ${URL}
     RET=$?
-    if [ ${RET} -ne 0 ] && [ ${RNUM} -le ${RLIM} ]; then
+    if [ ${RET} -ne 0 ] && [ ${RNUM} -lt ${RLIM} ]; then
         holdT=3
 	((RNUM++))
 	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
@@ -40,47 +38,48 @@ echo "------------------------"
 echo ""
 
 
+RLIM=5
 read -p "Which version do you want to download? : " V
     case "V" in
     a|A )
+	RNUM=0
         RET=1
         until [ ${RET} -eq 0 ]; do
             echo "[+] Downloading ... "
             youtube-dl -f 22 ${URL}
             RET=$?
-	    if [ ${RET} -ne 0 ]; then
+            if [ ${RET} -ne 0 ] && [ ${RNUM} -lt ${RLIM} ]; then
                 holdT=10
-                echo "  [-] Retrying in ${holdT} seconds ... "
+        	((RNUM++))
+        	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
                 sleep ${holdT}
-	    fi
+            else
+        	echo "[ERROR] Reach retry limt and abort! "
+        	exit 5
+            fi
         done
         ;;
     b|B )
+	RNUM=0
         RET=1
         until [ ${RET} -eq 0 ]; do
             echo "[+] Downloading ... "
             youtube-dl -f 137+140 --merge-output-format mp4 ${URL}
             RET=$?
-	    if [ ${RET} -ne 0 ]; then
-		holdT=10
-                echo "  [-] Retrying in ${holdT} seconds ... "
+            if [ ${RET} -ne 0 ] && [ ${RNUM} -lt ${RLIM} ]; then
+                holdT=10
+        	((RNUM++))
+        	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
                 sleep ${holdT}
-	    fi
+            else
+        	echo "[ERROR] Reach retry limt and abort! "
+        	exit 5
+            fi
         done
         ;;
     * )
         echo "Please input valid download option! "
-	exit 2
+	exit 4
         ;;
     esac
 
-
-# RET=1
-# until [ ${RET} -eq 0 ]; do
-#     echo "[+] Downloading ... "
-#     youtube-dl -f 137+140 --merge-output-format mp4 ${URL}
-#     RET=$?
-#     holdT=10
-#     echo "  [-] Retrying in ${holdT} seconds ... "
-#     sleep ${holdT}
-# done
