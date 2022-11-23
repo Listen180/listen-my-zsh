@@ -59,9 +59,6 @@ echo "  chosen option: [${V}]"
         	((RNUM++))
         	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
                 sleep ${holdT}
-            else
-        	echo "[ERROR] Reach retry limt and abort! "
-        	exit 5
             fi
         done
         ;;
@@ -81,9 +78,6 @@ echo "  chosen option: [${V}]"
         	((RNUM++))
         	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
                 sleep ${holdT}
-            else
-        	echo "[ERROR] Reach retry limt and abort! "
-        	exit 5
             fi
         done
         ;;
