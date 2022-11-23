@@ -23,8 +23,11 @@ until [ ${RET} -eq 0 ]; do
     if [ ${RET} -ne 0 ] && [ ${RNUM} -le ${RLIM} ]; then
         holdT=3
 	((RNUM++))
-	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}) "
+	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
         sleep ${holdT}
+    else
+	echo "[ERROR] Reach retry limt and abort! "
+	exit 5
     fi
 done
 
