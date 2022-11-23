@@ -42,7 +42,7 @@ echo ""
 RLIM=5
 read -p "Which version do you want to download? : " V
 echo "  chosen option: [${V}]"
-    case "V" in
+    case "${V}" in
     "a"|"A" )
 	RNUM=0
         RET=1
