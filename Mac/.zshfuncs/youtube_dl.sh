@@ -14,13 +14,13 @@ URL=$1
 RLIM=5
 
 
-RNUM=1
+RNUM=0
 RET=1
 until [ ${RET} -eq 0 ]; do
     echo "[+] Getting info ..."
     youtube-dl -F ${URL}
     RET=$?
-    if [ ${RET} -ne 0 ]; then
+    if [ ${RET} -ne 0 && ${RNUM} -le ${RLIM} ]; then
         holdT=3
 	((RNUM++))
 	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}) "
