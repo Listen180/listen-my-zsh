@@ -15,9 +15,11 @@ until [ ${RET} -eq 0 ]; do
     echo "[+] Getting info ..."
     youtube-dl -F ${URL}
     RET=$?
-    holdT=3
-    echo "  [-] Retrying in ${holdT} seconds ... "
-    sleep ${holdT}
+    if [ ${RET} -ne 0 ]; then
+        holdT=3
+        echo "  [-] Retrying in ${holdT} seconds ... "
+        sleep ${holdT}
+    fi
 done
 
 echo ""
@@ -37,9 +39,11 @@ read -p "Which version do you want to download? : " V
             echo "[+] Downloading ... "
             youtube-dl -f 22 ${URL}
             RET=$?
-            holdT=10
-            echo "  [-] Retrying in ${holdT} seconds ... "
-            sleep ${holdT}
+	    if [ ${RET} -ne 0 ]; then
+                holdT=10
+                echo "  [-] Retrying in ${holdT} seconds ... "
+                sleep ${holdT}
+	    fi
         done
         ;;
     b|B )
@@ -48,9 +52,11 @@ read -p "Which version do you want to download? : " V
             echo "[+] Downloading ... "
             youtube-dl -f 137+140 --merge-output-format mp4 ${URL}
             RET=$?
-            holdT=10
-            echo "  [-] Retrying in ${holdT} seconds ... "
-            sleep ${holdT}
+	    if [ ${RET} -ne 0 ]; then
+		holdT=10
+                echo "  [-] Retrying in ${holdT} seconds ... "
+                sleep ${holdT}
+	    fi
         done
         ;;
     * )
