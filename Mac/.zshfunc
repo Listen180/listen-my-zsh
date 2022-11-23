@@ -214,3 +214,12 @@ function dps () {
     # list all docker process
     docker ps
 }
+
+function autodl () {
+    # auto download using youtube-dl
+    [ $# -eq 0 ] && { echo "[ERROR: please provide URL]"; exit 1; }
+    URL=$1
+    echo "Auto downloading from [${URL}] ... "
+    sh ~/.zshfuncs/youtube_dl.sh ${URL}
+    echo "Auto download completed. "
+}
