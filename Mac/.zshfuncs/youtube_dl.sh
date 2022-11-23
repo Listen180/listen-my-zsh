@@ -9,11 +9,63 @@
 # *********************************************************
 
 URL=$1
+
 RET=1
 until [ ${RET} -eq 0 ]; do
-    youtube-dl -f 137+140 --merge-output-format mp4 ${URL}
+    echo "[+] Getting info ..."
+    youtube-dl -F ${URL}
     RET=$?
-    holdT=10
-    echo "Retrying in ${holdT} seconds ... "
+    holdT=3
+    echo "  [-] Retrying in ${holdT} seconds ... "
     sleep ${holdT}
 done
+
+echo ""
+echo "------------------------"
+echo "Download options: "
+echo "    A: normal good (22)"
+echo "    B: 1080p (137+140)"
+echo "------------------------"
+echo ""
+
+
+read -p "Which version do you want to download? : " V
+    case "V" in
+    a|A )
+        RET=1
+        until [ ${RET} -eq 0 ]; do
+            echo "[+] Downloading ... "
+            youtube-dl -f 22 ${URL}
+            RET=$?
+            holdT=10
+            echo "  [-] Retrying in ${holdT} seconds ... "
+            sleep ${holdT}
+        done
+        ;;
+    b|B )
+        RET=1
+        until [ ${RET} -eq 0 ]; do
+            echo "[+] Downloading ... "
+            youtube-dl -f 137+140 --merge-output-format mp4 ${URL}
+            RET=$?
+            holdT=10
+            echo "  [-] Retrying in ${holdT} seconds ... "
+            sleep ${holdT}
+        done
+        ;;
+    * )
+        echo "Please input valid download option! "
+	exit 2
+        ;;
+    esac
+
+
+# RET=1
+# until [ ${RET} -eq 0 ]; do
+#     echo "[+] Downloading ... "
+#     youtube-dl -f 137+140 --merge-output-format mp4 ${URL}
+#     RET=$?
+#     holdT=10
+#     echo "  [-] Retrying in ${holdT} seconds ... "
+#     sleep ${holdT}
+# done
