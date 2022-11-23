@@ -15,7 +15,7 @@ RLIM=5
 RNUM=0
 RET=1
 until [ ${RET} -eq 0 ]; do
-    if [ ${RUN} -ge ${RLIM} ]; then
+    if [ ${RNUM} -ge ${RLIM} ]; then
 	echo "[ERROR] Reach retry limt and abort! "
 	exit 5
     fi
@@ -46,7 +46,7 @@ read -p "Which version do you want to download? : " V
 	RNUM=0
         RET=1
         until [ ${RET} -eq 0 ]; do
-            if [ ${RUN} -ge ${RLIM} ]; then
+            if [ ${RNUM} -ge ${RLIM} ]; then
         	echo "[ERROR] Reach retry limt and abort! "
         	exit 5
             fi
@@ -68,7 +68,7 @@ read -p "Which version do you want to download? : " V
 	RNUM=0
         RET=1
         until [ ${RET} -eq 0 ]; do
-            if [ ${RUN} -ge ${RLIM} ]; then
+            if [ ${RNUM} -ge ${RLIM} ]; then
         	echo "[ERROR] Reach retry limt and abort! "
         	exit 5
             fi
