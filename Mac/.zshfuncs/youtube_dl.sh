@@ -13,5 +13,7 @@ RET=1
 until [ ${RET} -eq 0 ]; do
     youtube-dl -f 137+140 --merge-output-format mp4 ${URL}
     RET=$?
-    sleep 10
+    holdT=10
+    echo "Retrying in ${holdT} seconds ... "
+    sleep ${holdT}
 done
