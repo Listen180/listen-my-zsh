@@ -10,6 +10,11 @@
 
 URL=$1
 
+
+RLIM=5
+
+
+RNUM=1
 RET=1
 until [ ${RET} -eq 0 ]; do
     echo "[+] Getting info ..."
@@ -17,7 +22,8 @@ until [ ${RET} -eq 0 ]; do
     RET=$?
     if [ ${RET} -ne 0 ]; then
         holdT=3
-        echo "  [-] Retrying in ${holdT} seconds ... "
+	((RNUM++))
+	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}) "
         sleep ${holdT}
     fi
 done
