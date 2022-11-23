@@ -41,8 +41,9 @@ echo ""
 
 RLIM=5
 read -p "Which version do you want to download? : " V
+echo "  chosen option: [${V}]"
     case "V" in
-    a|A )
+    "a"|"A" )
 	RNUM=0
         RET=1
         until [ ${RET} -eq 0 ]; do
@@ -64,7 +65,7 @@ read -p "Which version do you want to download? : " V
             fi
         done
         ;;
-    b|B )
+    "b"|"B" )
 	RNUM=0
         RET=1
         until [ ${RET} -eq 0 ]; do
