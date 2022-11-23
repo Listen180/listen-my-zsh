@@ -15,17 +15,18 @@ RLIM=5
 RNUM=0
 RET=1
 until [ ${RET} -eq 0 ]; do
+    if [ ${RUN} -ge ${RLIM} ]; then
+	echo "[ERROR] Reach retry limt and abort! "
+	exit 5
+    fi
     echo "[+] Getting info ..."
     youtube-dl -F ${URL}
     RET=$?
-    if [ ${RET} -ne 0 ] && [ ${RNUM} -lt ${RLIM} ]; then
+    if [ ${RET} -ne 0 ]; then
         holdT=3
 	((RNUM++))
 	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
         sleep ${holdT}
-    else
-	echo "[ERROR] Reach retry limt and abort! "
-	exit 5
     fi
 done
 
@@ -45,10 +46,14 @@ read -p "Which version do you want to download? : " V
 	RNUM=0
         RET=1
         until [ ${RET} -eq 0 ]; do
+            if [ ${RUN} -ge ${RLIM} ]; then
+        	echo "[ERROR] Reach retry limt and abort! "
+        	exit 5
+            fi
             echo "[+] Downloading ... "
             youtube-dl -f 22 ${URL}
             RET=$?
-            if [ ${RET} -ne 0 ] && [ ${RNUM} -lt ${RLIM} ]; then
+            if [ ${RET} -ne 0 ]; then
                 holdT=10
         	((RNUM++))
         	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
@@ -63,10 +68,14 @@ read -p "Which version do you want to download? : " V
 	RNUM=0
         RET=1
         until [ ${RET} -eq 0 ]; do
+            if [ ${RUN} -ge ${RLIM} ]; then
+        	echo "[ERROR] Reach retry limt and abort! "
+        	exit 5
+            fi
             echo "[+] Downloading ... "
             youtube-dl -f 137+140 --merge-output-format mp4 ${URL}
             RET=$?
-            if [ ${RET} -ne 0 ] && [ ${RNUM} -lt ${RLIM} ]; then
+            if [ ${RET} -ne 0 ]; then
                 holdT=10
         	((RNUM++))
         	echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
