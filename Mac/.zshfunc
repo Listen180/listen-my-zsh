@@ -222,8 +222,8 @@ function auto-dl () {
     echo "Auto downloading from [${URL}] ... "
     sh ~/.zshfuncs/youtube_dl.sh ${URL}
     if [ $? -eq 0 ];then
-	echo "Auto download completed. "
+	echo "[SUCCESS] Auto download completed. "
     else
-	exit $?
+	echo "[ERROR] Auto download incompleted. "
     fi
 }
