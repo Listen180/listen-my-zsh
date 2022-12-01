@@ -39,7 +39,7 @@ echo "------------------------"
 echo ""
 
 
-RLIM=5
+RLIM=10
 read -p "Which version do you want to download? : " V
 echo "  chosen option: [${V}]"
     case "${V}" in
