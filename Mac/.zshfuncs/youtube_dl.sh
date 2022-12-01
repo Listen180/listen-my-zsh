@@ -83,7 +83,7 @@ echo "  chosen option: [${V}]"
         ;;
     * )
         echo "Please input valid download option! "
-	exit 4
+	#exit 4
         ;;
     esac
 
