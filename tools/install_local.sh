@@ -74,7 +74,10 @@ fi
 
 
 if [[ "$OSTYPE" == 'linux-gnu' ]]; then
-    echo "  copying .zshrc for Linux ..."
+    echo "  copying .zshrc for Linux GNU..."
+    cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
+elif [[ "$OSTYPE" == 'linux-android' ]]; then
+    echo "  copying .zshrc for Linux Android ..."
     cp ~/.listen-my-zsh/Ubuntu/.zshrc ~/.zshrc
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
     echo "  copying .zshrc for Mac OS ..."
