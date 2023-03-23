@@ -216,11 +216,11 @@ function dps () {
 }
 
 function auto-dl () {
-    # auto download using youtube-dl
+    # auto download using yt-dlp
     [ $# -eq 0 ] && { echo "[ERROR] please provide URL"; exit 1; }
     URL=$1
     echo "Auto downloading from [${URL}] ... "
-    sh ~/.zshfuncs/youtube_dl.sh ${URL}
+    sh ~/.zshfuncs/yt-dlp.sh ${URL}
     if [ $? -eq 0 ];then
 	echo "[SUCCESS] Auto download completed. "
     else
