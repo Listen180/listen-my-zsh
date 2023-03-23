@@ -34,7 +34,8 @@ echo ""
 echo "------------------------"
 echo "Download options: "
 echo "    A: normal good (22)"
-echo "    B: combo (customized)"
+echo "    B: single (customized)"
+echo "    C: combo (customized)"
 echo "------------------------"
 echo ""
 
@@ -64,8 +65,7 @@ echo "  chosen option: [${V}]"
         ;;
     "b"|"B" )
         RNUM=0
-        read -p "Select video version: " videoV
-        read -p "Select audio version: " audioV
+        read -p "Select file code: " fCode
         RET=1
         until [ ${RET} -eq 0 ]; do
             if [ ${RNUM} -ge ${RLIM} ]; then
@@ -73,7 +73,28 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp -f ${videoV}+${audioV} --merge-output-format mp4 ${URL}
+            yt-dlp -f ${fCode} ${URL}
+            RET=$?
+            if [ ${RET} -ne 0 ]; then
+                holdT=10
+                ((RNUM++))
+                echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
+                sleep ${holdT}
+            fi
+        done
+        ;;
+    "c"|"C" )
+        RNUM=0
+        read -p "Select video file code: " videoCode
+        read -p "Select audio file code: " audioCode
+        RET=1
+        until [ ${RET} -eq 0 ]; do
+            if [ ${RNUM} -ge ${RLIM} ]; then
+            echo "[ERROR] Reach retry limt and abort! "
+            exit 5
+            fi
+            echo "[+] Downloading ... "
+            yt-dlp -f ${videoCode}+${audioCode} --merge-output-format mp4 ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
                 holdT=10
