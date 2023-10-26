@@ -33,31 +33,11 @@ fi
 set -e
 
 
-## Install oh-my-zsh
-# if [ ! -d ~/.listen-my-zsh ]; then
-#     echo " Installing oh-my-zsh ... "
-#     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-#     echo ""
-# fi
-
-
 ## Install listen-my-zsh using existing installer
 if [ -d ~/.listen-my-zsh ]; then
-    read -p "[~/.listen-my-zsh] folder found. Are you going to install listen-my-zsh with it? [Y/n]: " choice
-    case "$choice" in 
-        y|Y )
-            echo "Installing listen-my-zsh ... "
-            echo ""
-            ;;
-        n|N )
-            echo "Aborted. "
-            echo ""
-            ;;
-        * )
-            echo "Invalid input. (Please choose 'y' or 'n')"
-            echo ""
-            ;;
-    esac
+    echo ""
+    echo "[~/.listen-my-zsh] folder found. Installing listen-my-zsh ... "
+    echo ""
 else
     echo ""
     echo "Installer NOT found. Please make sure [~/.listen-my-zsh] is placed correctly. "
