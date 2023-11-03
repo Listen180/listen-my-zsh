@@ -212,7 +212,7 @@ function dcls () {
 
 function dps () {
     # list all docker process
-    docker ps
+    ps aux | grep docker
 }
 
 function auto-dl () {
