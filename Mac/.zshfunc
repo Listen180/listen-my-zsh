@@ -158,8 +158,8 @@ function wanip(){
     echo "WAN-IP-v4: ${wanipv4}"
     echo "WAN-IP-v6: ${wanipv6}"
     echo 'Finding locations ...'
-    #curl http://api.db-ip.com/v2/free/$wanipv4
-    curl ipinfo.io/$wanipv4
+    #curl ipinfo.io/$wanipv4
+    curl https://ipapi.co/$wanipv4/json/
     echo ''
     echo '... Done. '
 }
