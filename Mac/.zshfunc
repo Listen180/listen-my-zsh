@@ -158,7 +158,20 @@ function wanip(){
     echo "WAN-IP-v4: ${wanipv4}"
     echo "WAN-IP-v6: ${wanipv6}"
     echo 'Finding locations ...'
-    #curl ipinfo.io/$wanipv4
+    curl ipinfo.io/$wanipv4
+    #curl https://ipapi.co/$wanipv4/json/
+    echo ''
+    echo '... Done. '
+}
+
+
+function wanip-more(){
+    #PublicIp=$(curl getip.name)
+    wanipv4=$(dig @resolver1.opendns.com A myip.opendns.com +short -4)
+    wanipv6=$(dig @resolver1.opendns.com A myip.opendns.com +short -6)
+    echo "WAN-IP-v4: ${wanipv4}"
+    echo "WAN-IP-v6: ${wanipv6}"
+    echo 'Finding locations ...'
     curl https://ipapi.co/$wanipv4/json/
     echo ''
     echo '... Done. '
