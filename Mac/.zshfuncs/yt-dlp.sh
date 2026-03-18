@@ -3,7 +3,7 @@
 # * Author        : LEI Sen
 # * Email         : sen.lei@outlook.com
 # * Create time   : 2022-11-23 09:57
-# * Last modified : 2023-03-23 16:56
+# * Last modified : 2026-03-18 14:59
 # * Filename      : yt-dlp.sh
 # * Description   : 
 # *********************************************************
@@ -20,7 +20,7 @@ until [ ${RET} -eq 0 ]; do
         exit 5
     fi
     echo "[+] Getting info ..."
-    yt-dlp -F ${URL}
+    yt-dlp -F ${URL} --js-runtimes node
     RET=$?
     if [ ${RET} -ne 0 ]; then
         holdT=3
@@ -53,7 +53,7 @@ echo "  chosen option: [${V}]"
                 exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp -f 22 ${URL}
+            yt-dlp -f 22 ${URL} --js-runtimes node
             RET=$?
             if [ ${RET} -ne 0 ]; then
                 holdT=10
@@ -73,7 +73,7 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp -f ${fCode} ${URL}
+            yt-dlp -f ${fCode} ${URL} --js-runtimes node
             RET=$?
             if [ ${RET} -ne 0 ]; then
                 holdT=10
@@ -94,7 +94,7 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp -f ${videoCode}+${audioCode} --merge-output-format mp4 ${URL}
+            yt-dlp -f ${videoCode}+${audioCode} --merge-output-format mp4 ${URL} --js-runtimes node
             RET=$?
             if [ ${RET} -ne 0 ]; then
                 holdT=10
