@@ -33,7 +33,8 @@ done
 echo ""
 echo "------------------------"
 echo "Download options: "
-echo "    A: normal good (22)"
+echo "    A: best (best <= 1080)"
+echo "    AB: best (best of all)"
 echo "    B: single (customized)"
 echo "    C: combo (customized)"
 echo "------------------------"
@@ -53,7 +54,28 @@ echo "  chosen option: [${V}]"
                 exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp -f 22 ${URL}
+            yt-dlp --write-subs --write-auto-subs --sub-langs "en" ${URL}
+            yt-dlp -f "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]" --merge-output-format mp4 ${URL}
+            RET=$?
+            if [ ${RET} -ne 0 ]; then
+                holdT=10
+                ((RNUM++))
+                echo "  [-] Retrying in ${holdT} seconds ... (${RNUM}/${RLIM}) "
+                sleep ${holdT}
+            fi
+        done
+        ;;
+    "ab"|"AB" )
+        RNUM=0
+        RET=1
+        until [ ${RET} -eq 0 ]; do
+            if [ ${RNUM} -ge ${RLIM} ]; then
+                echo "[ERROR] Reach retry limt and abort! "
+                exit 5
+            fi
+            echo "[+] Downloading ... "
+            yt-dlp --write-subs --write-auto-subs --sub-langs "en" ${URL}
+            yt-dlp -f "bestvideo+bestaudio/best" --merge-output-format mp4 ${URL}            
             RET=$?
             if [ ${RET} -ne 0 ]; then
                 holdT=10
@@ -73,6 +95,7 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
+            yt-dlp --write-subs --write-auto-subs --sub-langs "en" ${URL}
             yt-dlp -f ${fCode} ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
@@ -94,6 +117,7 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
+            yt-dlp --write-subs --write-auto-subs --sub-langs "en" ${URL}
             yt-dlp -f ${videoCode}+${audioCode} --merge-output-format mp4 ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
