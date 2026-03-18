@@ -20,7 +20,7 @@ until [ ${RET} -eq 0 ]; do
         exit 5
     fi
     echo "[+] Getting info ..."
-    yt-dlp -F ${URL} --js-runtimes node
+    yt-dlp -F ${URL}
     RET=$?
     if [ ${RET} -ne 0 ]; then
         holdT=3
@@ -53,7 +53,7 @@ echo "  chosen option: [${V}]"
                 exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp -f 22 ${URL} --js-runtimes node
+            yt-dlp -f 22 ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
                 holdT=10
@@ -73,7 +73,7 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp -f ${fCode} ${URL} --js-runtimes node
+            yt-dlp -f ${fCode} ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
                 holdT=10
@@ -94,7 +94,7 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp -f ${videoCode}+${audioCode} --merge-output-format mp4 ${URL} --js-runtimes node
+            yt-dlp -f ${videoCode}+${audioCode} --merge-output-format mp4 ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
                 holdT=10
