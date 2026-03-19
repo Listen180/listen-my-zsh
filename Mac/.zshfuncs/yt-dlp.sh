@@ -54,7 +54,7 @@ echo "  chosen option: [${V}]"
                 exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp --write-subs --write-auto-subs --sub-langs "en" --skip-download ${URL}
+            yt-dlp --write-subs --write-auto-subs --sub-langs "en" --sub-format srt --skip-download ${URL}
             yt-dlp -f "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]" --merge-output-format mp4 ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
@@ -74,7 +74,7 @@ echo "  chosen option: [${V}]"
                 exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp --write-subs --write-auto-subs --sub-langs "en" --skip-download ${URL}
+            yt-dlp --write-subs --write-auto-subs --sub-langs "en" --sub-format srt --skip-download ${URL}
             yt-dlp -f "bestvideo+bestaudio/best" --merge-output-format mp4 ${URL}            
             RET=$?
             if [ ${RET} -ne 0 ]; then
@@ -95,7 +95,7 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp --write-subs --write-auto-subs --sub-langs "en" --skip-download ${URL}
+            yt-dlp --write-subs --write-auto-subs --sub-langs "en" --sub-format srt --skip-download ${URL}
             yt-dlp -f ${fCode} ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
@@ -117,7 +117,7 @@ echo "  chosen option: [${V}]"
             exit 5
             fi
             echo "[+] Downloading ... "
-            yt-dlp --write-subs --write-auto-subs --sub-langs "en" --skip-download ${URL}
+            yt-dlp --write-subs --write-auto-subs --sub-langs "en" --sub-format srt --skip-download ${URL}
             yt-dlp -f ${videoCode}+${audioCode} --merge-output-format mp4 ${URL}
             RET=$?
             if [ ${RET} -ne 0 ]; then
